@@ -31,6 +31,7 @@ exports.config = {
   waitforTimeout: 10000,
   connectionRetryTimeout: 90000,
   connectionRetryCount: 3,
+  host: 'hub.browserstack.com',
   
   framework: 'mocha',
   mochaOpts: {
