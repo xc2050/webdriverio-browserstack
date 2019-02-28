@@ -14,7 +14,7 @@ exports.config = {
     build: 'webdriver-browserstack'
   }],
 
-  logLevel: 'verbose',
+  logLevel: 'warn',
   coloredLogs: true,
   screenshotPath: './errorShots/',
   baseUrl: '',
