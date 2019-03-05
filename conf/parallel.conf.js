@@ -24,7 +24,7 @@ exports.config = {
     browser: 'safari'
   }],
 
-  logLevel: 'verbose',
+  logLevel: 'warn',
   coloredLogs: true,
   screenshotPath: './errorShots/',
   baseUrl: '',
@@ -33,6 +33,11 @@ exports.config = {
   connectionRetryCount: 3,
   host: 'hub.browserstack.com',
   
+  before: function () {
+    var chai = require('chai');
+    global.expect = chai.expect;
+    chai.Should();
+  },
   framework: 'mocha',
   mochaOpts: {
       ui: 'bdd'

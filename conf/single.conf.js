@@ -9,12 +9,12 @@ exports.config = {
   exclude: [],
 
   capabilities: [{
-    browser: 'chrome',
+    browser: 'Chrome',
     name: 'single_test',
     build: 'webdriver-browserstack'
   }],
 
-  logLevel: 'verbose',
+  logLevel: 'warn',
   coloredLogs: true,
   screenshotPath: './errorShots/',
   baseUrl: '',
@@ -22,9 +22,15 @@ exports.config = {
   connectionRetryTimeout: 90000,
   connectionRetryCount: 3,
   host: 'hub.browserstack.com',
-  
+
+  before: function () {
+    var chai = require('chai');
+    global.expect = chai.expect;
+    chai.Should();
+  },
   framework: 'mocha',
   mochaOpts: {
-      ui: 'bdd'
-  }
+    ui: 'bdd',
+    timeout: 60000
+  },
 }

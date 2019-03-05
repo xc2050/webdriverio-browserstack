@@ -17,7 +17,7 @@ exports.config = {
     'browserstack.local': true
   }],
 
-  logLevel: 'verbose',
+  logLevel: 'warn',
   coloredLogs: true,
   screenshotPath: './errorShots/',
   baseUrl: '',
@@ -26,27 +26,33 @@ exports.config = {
   connectionRetryCount: 3,
   host: 'hub.browserstack.com',
 
+  before: function () {
+    var chai = require('chai');
+    global.expect = chai.expect;
+    chai.Should();
+  },
   framework: 'mocha',
   mochaOpts: {
-      ui: 'bdd'
+    ui: 'bdd',
+    timeout: 60000
   },
 
   // Code to start browserstack local before start of test
   onPrepare: function (config, capabilities) {
     console.log("Connecting local");
-    return new Promise(function(resolve, reject){
+    return new Promise(function (resolve, reject) {
       exports.bs_local = new browserstack.Local();
-      exports.bs_local.start({'key': exports.config.key }, function(error) {
+      exports.bs_local.start({ 'key': exports.config.key }, function (error) {
         if (error) return reject(error);
-        console.log('Connected. Now testing...');
 
+        console.log('Connected. Now testing...');
         resolve();
       });
     });
   },
 
   // Code to stop browserstack local after end of test
-  onComplete: function (capabilties, specs) {
-    exports.bs_local.stop(function() {});
-  }
+  onComplete: function (exitCode, config, capabilities, results) {
+    exports.bs_local.stop();
+  },
 }
