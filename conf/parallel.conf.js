@@ -46,6 +46,7 @@ exports.config = {
 
 // Code to support common capabilities
 exports.config.capabilities.forEach(function(caps){
-  return {...caps, ...exports.config.commonCapabilities}
+  for (var key in caps) { exports.config.commonCapabilities[key] = caps[key]; }
+  return exports.config.commonCapabilities
 });
 
