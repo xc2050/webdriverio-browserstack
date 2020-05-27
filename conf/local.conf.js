@@ -52,7 +52,12 @@ exports.config = {
   },
 
   // Code to stop browserstack local after end of test
-  onComplete: function (exitCode, config, capabilities, results) {
-    exports.bs_local.stop();
-  },
+  onComplete: function (capabilties, specs) { 
+    return new Promise(function(resolve, reject){
+      exports.bs_local.stop(function() {
+        console.log("Binary stopped");
+        resolve();
+      });
+    });
+  }
 }
