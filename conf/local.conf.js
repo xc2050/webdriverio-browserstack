@@ -51,8 +51,17 @@ exports.config = {
     });
   },
 
+  // Code to mark the status of test on BrowserStack based on the assertion status
+  afterTest: function (test, context, { error, result, duration, passed, retries }) {
+    if(passed) {
+      browser.executeScript('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed","reason": ""}}');
+    } else {
+      browser.executeScript('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"failed","reason": ""}}');
+    }
+  }
+
   // Code to stop browserstack local after end of test
-  onComplete: function (capabilties, specs) { 
+  onComplete: function (capabilties, specs) {
     return new Promise(function(resolve, reject){
       exports.bs_local.stop(function() {
         console.log("Binary stopped");

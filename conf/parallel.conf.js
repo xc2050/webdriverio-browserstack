@@ -32,7 +32,7 @@ exports.config = {
   connectionRetryTimeout: 90000,
   connectionRetryCount: 3,
   host: 'hub.browserstack.com',
-  
+
   before: function () {
     var chai = require('chai');
     global.expect = chai.expect;
@@ -41,6 +41,15 @@ exports.config = {
   framework: 'mocha',
   mochaOpts: {
       ui: 'bdd'
+  },
+
+  // Code to mark the status of test on BrowserStack based on the assertion status
+  afterTest: function (test, context, { error, result, duration, passed, retries }) {
+    if(passed) {
+      browser.executeScript('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed","reason": ""}}');
+    } else {
+      browser.executeScript('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"failed","reason": ""}}');
+    }
   }
 }
 
@@ -48,4 +57,3 @@ exports.config = {
 exports.config.capabilities.forEach(function(caps){
   for(var i in exports.config.commonCapabilities) caps[i] = caps[i] || exports.config.commonCapabilities[i];
 });
-
