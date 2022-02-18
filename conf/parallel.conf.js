@@ -1,6 +1,6 @@
 exports.config = {
   user: process.env.BROWSERSTACK_USERNAME || 'BROWSERSTACK_USERNAME',
-  key: process.env.BROWSERSTACK_ACCESS_KEY || 'BROWSERSTACK_ACC_KEY',
+  key: process.env.BROWSERSTACK_ACCESS_KEY || 'BROWSERSTACK_ACCESS_KEY',
 
   updateJob: false,
   specs: [
@@ -43,15 +43,6 @@ exports.config = {
   mochaOpts: {
       ui: 'bdd',
       timeout: 60000
-  },
-
-  // Code to mark the status of test on BrowserStack based on the assertion status
-  afterTest: function (test, context, { error, result, duration, passed, retries }) {
-    if(passed) {
-      browser.executeScript('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed","reason": "Assertions passed"}}');
-    } else {
-      browser.executeScript('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"failed","reason": "At least 1 assertion failed"}}');
-    }
   }
 }
 
