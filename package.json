@@ -6,8 +6,7 @@
   "scripts": {
     "test": "npm run single && npm run local && npm run parallel",
     "single": "./node_modules/.bin/wdio conf/single.conf.js",
-    "parallel": "./node_modules/.bin/wdio conf/parallel.conf.js",
-    "local": "./node_modules/.bin/wdio conf/local.conf.js"
+    "parallel": "./node_modules/.bin/wdio conf/parallel.conf.js"
   },
   "repository": {
     "type": "git",
