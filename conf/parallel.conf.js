@@ -10,9 +10,11 @@ exports.config = {
 
   maxInstances: 10,
   commonCapabilities: {
-    //"browserstack.local": true, // Use this for enabling local testing
-    name: 'parallel_test',
-    build: 'browserstack-build-1'
+    "bstack:options": {
+      sessionName: 'parallel_test',
+      buildName: 'browserstack-build-1',
+      //local: true, // Use this for enabling local testing
+    }
   },
 
   capabilities: [{
