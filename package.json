@@ -4,7 +4,7 @@
   "readme": "WendriverIO Integration with [BrowserStack](https://www.browserstack.com)",
   "description": "Selenium examples for WebdriverIO and BrowserStack Automate",
   "scripts": {
-    "test": "npm run single && npm run local && npm run parallel",
+    "test": "npm run single && npm run parallel",
     "single": "./node_modules/.bin/wdio conf/single.conf.js",
     "parallel": "./node_modules/.bin/wdio conf/parallel.conf.js"
   },
@@ -24,7 +24,6 @@
   "homepage": "https://github.com/browserstack/webdriverio-browserstack#readme",
   "dependencies": {
     "@wdio/cli": "^7.16.15",
-    "browserstack-local": "^1.4.8",
     "chai": "^4.3.6",
     "webdriverio": "^7.16.15"
   },
