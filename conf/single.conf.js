@@ -10,9 +10,11 @@ exports.config = {
 
   capabilities: [{
     browserName: 'Chrome',
-    name: 'single_test',
-    build: 'browserstack-build-1'
-    //"browserstack.local": true, // use this for enabling local testing
+    "bstack:options": {
+      sessionName: 'single_test',
+      buildName: 'browserstack-build-1',
+      //local: true, // use this for enabling local testing
+    }
   }],
 
   logLevel: 'warn',
