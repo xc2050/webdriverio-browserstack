@@ -10,6 +10,7 @@ exports.config = {
 
   maxInstances: 10,
   commonCapabilities: {
+    //"browserstack.local": true, // Use this for enabling local testing
     name: 'parallel_test',
     build: 'browserstack-build-1'
   },
@@ -33,6 +34,7 @@ exports.config = {
   connectionRetryCount: 3,
   host: 'hub-cloud.browserstack.com',
   services: [['browserstack']],
+  //services: [['browserstack', { browserstackLocal: true }]], // Use this for setting up binary for local testing
 
   before: function () {
     var chai = require('chai');
