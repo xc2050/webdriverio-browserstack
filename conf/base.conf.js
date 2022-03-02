@@ -4,7 +4,7 @@ exports.config = {
 
   updateJob: false,
   specs: [
-    './tests/specs/single_test.js'
+    './tests/specs/google_test.js'
   ],
   exclude: [],
 
@@ -13,7 +13,6 @@ exports.config = {
     "bstack:options": {
       sessionName: 'single_test',
       buildName: 'browserstack-build-1',
-      //local: true, // use this for enabling local testing
     }
   }],
 
@@ -26,8 +25,6 @@ exports.config = {
   connectionRetryCount: 3,
   host: 'hub-cloud.browserstack.com',
   services: [['browserstack']],
-  //services: [['browserstack', { browserstackLocal: true }]], // Use this for setting up binary for local testing
-
 
   before: function () {
     var chai = require('chai');
