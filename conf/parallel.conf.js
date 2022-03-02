@@ -1,22 +1,12 @@
-exports.config = {
-  user: process.env.BROWSERSTACK_USERNAME || 'BROWSERSTACK_USERNAME',
-  key: process.env.BROWSERSTACK_ACCESS_KEY || 'BROWSERSTACK_ACCESS_KEY',
+const { config: baseConfig }= require("./base.conf.js");
 
-  updateJob: false,
-  specs: [
-    './tests/specs/single_test.js'
-  ],
-  exclude: [],
-
+const parallelConfig = {
   maxInstances: 10,
   commonCapabilities: {
     "bstack:options": {
-      sessionName: 'parallel_test',
       buildName: 'browserstack-build-1',
-      //local: true, // Use this for enabling local testing
     }
   },
-
   capabilities: [{
     browserName: 'chrome'
   },{
@@ -26,31 +16,12 @@ exports.config = {
   },{
     browserName: 'safari'
   }],
+};
 
-  logLevel: 'warn',
-  coloredLogs: true,
-  screenshotPath: './errorShots/',
-  baseUrl: '',
-  waitforTimeout: 10000,
-  connectionRetryTimeout: 90000,
-  connectionRetryCount: 3,
-  host: 'hub-cloud.browserstack.com',
-  services: [['browserstack']],
-  //services: [['browserstack', { browserstackLocal: true }]], // Use this for setting up binary for local testing
-
-  before: function () {
-    var chai = require('chai');
-    global.expect = chai.expect;
-    chai.Should();
-  },
-  framework: 'mocha',
-  mochaOpts: {
-      ui: 'bdd',
-      timeout: 60000
-  }
-}
+exports.config = {...baseConfig, ...parallelConfig};
 
 // Code to support common capabilities
 exports.config.capabilities.forEach(function(caps){
   for(var i in exports.config.commonCapabilities) caps[i] = caps[i] || exports.config.commonCapabilities[i];
 });
+
