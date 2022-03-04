@@ -3,9 +3,7 @@ const { config: baseConfig }= require("./base.conf.js");
 const parallelConfig = {
   maxInstances: 10,
   commonCapabilities: {
-    "bstack:options": {
-      buildName: 'browserstack-build-1',
-    }
+    build: 'browserstack-build-1',
   },
   capabilities: [{
     browserName: 'chrome'

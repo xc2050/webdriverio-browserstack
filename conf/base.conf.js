@@ -10,10 +10,7 @@ exports.config = {
 
   capabilities: [{
     browserName: 'Chrome',
-    "bstack:options": {
-      sessionName: 'single_test',
-      buildName: 'browserstack-build-1',
-    }
+    build: 'browserstack-build-1',
   }],
 
   logLevel: 'warn',
