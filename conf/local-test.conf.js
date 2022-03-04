@@ -13,5 +13,4 @@ const localConfig = {
   specs: ['./tests/specs/local_test.js']
 };
 
-console.log({...baseConfig, ...localConfig})
 exports.config = {...baseConfig, ...localConfig};
