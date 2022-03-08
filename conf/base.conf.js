@@ -21,7 +21,7 @@ exports.config = {
   connectionRetryTimeout: 90000,
   connectionRetryCount: 3,
   host: 'hub-cloud.browserstack.com',
-  services: [['browserstack']],
+  services: [['@browserstack/wdio-browserstack-service']],
 
   before: function () {
     var chai = require('chai');
