@@ -13,6 +13,8 @@ const parallelConfig = {
     browserName: 'internet explorer'
   },{
     browserName: 'safari'
+  },{
+    browserName: 'edge'
   }],
 };
 
@@ -22,4 +24,3 @@ exports.config = {...baseConfig, ...parallelConfig};
 exports.config.capabilities.forEach(function(caps){
   for(var i in exports.config.commonCapabilities) caps[i] = caps[i] || exports.config.commonCapabilities[i];
 });
-
