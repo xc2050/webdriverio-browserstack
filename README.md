@@ -18,14 +18,6 @@ Master branch contains **Selenium 3** samples, for **Selenium 4 - W3C protocol**
 
  Understand how many parallel sessions you need by using our [Parallel Test Calculator](https://www.browserstack.com/automate/parallel-calculator?ref=github)
 
-## Running local tests
-Make following changes to `conf/single.conf.js` and `conf/parallel.conf.js`
-- Add `browserstack.local: true` to capabilities
-- Add `browserstackLocal: true` to browserstack service config.
-```
-services: [['browserstack', { browserstackLocal: true }]]
-```
-
 ## Notes
 * You can view your test results on the [BrowserStack automate dashboard](https://www.browserstack.com/automate)
 * To test on a different set of browsers, check out our [platform configurator](https://www.browserstack.com/automate/node#setting-os-and-browser)
