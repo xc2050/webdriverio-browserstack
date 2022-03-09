@@ -4,7 +4,7 @@ exports.config = {
 
   updateJob: false,
   specs: [
-    './tests/specs/google_test.js'
+    './tests/specs/test.js'
   ],
   exclude: [],
 
