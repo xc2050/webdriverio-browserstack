@@ -1,19 +1,23 @@
-describe("Google's Search Functionality", () => {
-  it("can find search results", async () => {
-    await browser.url("https://www.google.com/ncr");
-    const inputForm = await $("//input[@name='q']");
-    await inputForm.setValue(["BrowserStack", "Enter"]); // this helps in majority desktops
-
-    try {
-      await browser.waitUntil(async () => (await browser.getTitle()).match(/BrowserStack/i), { timeout: 5000 });
-    } catch (e) {
-      await browser.elementSubmit(inputForm.elementId); // this helps in remaining cases, i.e. iPhone
-    }
-
+describe("Testing with Bstackdemo", () => {
+  it("add product to cart", async () => {
+    await browser.url("https://bstackdemo.com/");
     await browser.waitUntil(
-      async () => (await browser.getTitle()).match(/BrowserStack/i),
+      async () => (await browser.getTitle()).match(/StackDemo/i),
       5000,
       "Title didn't match with BrowserStack"
+    );
+
+    const productOnScreen = await $('//*[@id="1"]/p');
+    const productOnScreenText = await productOnScreen.getText();
+
+    const addToCart = await $('//*[@id="1"]/div[4]');
+    await addToCart.click();
+
+    const productInCart = await $('//*[@id="__next"]/div/div/div[2]/div[2]/div[2]/div/div[3]/p[1]');
+
+    await browser.waitUntil(async () => (
+      await productInCart.getText()).match(productOnScreenText), 
+      { timeout: 5000 }
     );
   });
 });
