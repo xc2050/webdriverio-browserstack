@@ -8,9 +8,13 @@ const parallelConfig = {
   capabilities: [{
     browserName: 'chrome'
   },{
+    browserName: 'firefox'
+  },{
     browserName: 'internet explorer'
   },{
     browserName: 'safari'
+  },{
+    browserName: 'edge'
   }],
 };
 
