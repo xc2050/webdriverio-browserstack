@@ -20,7 +20,7 @@ Master branch contains **Selenium 3** samples, for **Selenium 4 - W3C protocol**
 
 ## Notes
 * You can view your test results on the [BrowserStack automate dashboard](https://www.browserstack.com/automate)
-* To test on a different set of browsers, check out our [platform configurator](https://www.browserstack.com/automate/node#setting-os-and-browser)
+* To test on a different set of browsers, check out our [platform configurator](https://www.browserstack.com/automate/capabilities)
 * You can export the environment variables for the Username and Access Key of your BrowserStack account
   
   ```sh
