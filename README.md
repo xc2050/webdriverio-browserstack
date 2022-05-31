@@ -1,8 +1,6 @@
 # webdriverio-browserstack
 [WebdriverIO](http://webdriver.io/) Integration with BrowserStack.
 
-Master branch contains code samples using the **wdio-browserstack-service**, to run tests **without the service** please checkout [vanilla-integration](https://github.com/browserstack/webdriverio-browserstack/tree/vanilla-integration) branch
-
 ![BrowserStack Logo](https://d98b8t1nnulk5.cloudfront.net/production/images/layout/logo-header.png?1469004780)
 
 <img src = "https://webdriver.io/img/webdriverio.png" height = "100">
