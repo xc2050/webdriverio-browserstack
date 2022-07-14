@@ -3,9 +3,7 @@ exports.config = {
   key: process.env.BROWSERSTACK_ACCESS_KEY || 'BROWSERSTACK_ACCESS_KEY',
 
   updateJob: false,
-  specs: [
-    './tests/specs/test.js'
-  ],
+  specs: ['./tests/specs/test.js'],
   exclude: [],
 
   logLevel: 'warn',
@@ -26,6 +24,6 @@ exports.config = {
   framework: 'mocha',
   mochaOpts: {
     ui: 'bdd',
-    timeout: 60000
-  }
-}
+    timeout: 60000,
+  },
+};
