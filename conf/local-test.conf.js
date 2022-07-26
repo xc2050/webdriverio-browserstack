@@ -4,14 +4,17 @@ const localConfig = {
   // Adding browserstackLocal to browserstack-service to initiate local binary
   services: [
     [
-      '@wdio/browserstack-service',
+      'browserstack',
       { browserstackLocal: true, opts: { forcelocal: false } },
     ],
   ],
   capabilities: [
     {
       browserName: 'chrome',
-      build: 'browserstack-build-1',
+      browserVersion: 'latest',
+      'bstack:options': {
+        buildName: 'browserstack-build-1',
+      }
     },
   ],
   specs: ['./tests/specs/local_test.js'],
