@@ -5,7 +5,7 @@ const localConfig = {
   services: [
     [
       'browserstack',
-      { browserstackLocal: true, buildIdentifier: '#${BUILD_NUMBER}', opts: { forcelocal: true } },
+      { browserstackLocal: true, buildIdentifier: '#${BUILD_NUMBER}', opts: { forcelocal: false } },
     ],
   ],
   capabilities: [
