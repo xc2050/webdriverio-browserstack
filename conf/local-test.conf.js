@@ -10,7 +10,7 @@ const localConfig = {
         buildIdentifier: '#${BUILD_NUMBER}', 
         opts: { 
           forcelocal: false, 
-          localIdentifier: 'webdriverio-browserstack' 
+          localIdentifier: 'webdriverio-browserstack-repo' 
         } 
       },
     ],
