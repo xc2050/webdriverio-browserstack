@@ -5,7 +5,14 @@ const localConfig = {
   services: [
     [
       'browserstack',
-      { browserstackLocal: true, buildIdentifier: '#${BUILD_NUMBER}', opts: { forcelocal: false, localIdentifier: 'webdriverio-browserstack' } },
+      { 
+        browserstackLocal: true, 
+        buildIdentifier: '#${BUILD_NUMBER}', 
+        opts: { 
+          forcelocal: false, 
+          localIdentifier: 'webdriverio-browserstack' 
+        } 
+      },
     ],
   ],
   capabilities: [
