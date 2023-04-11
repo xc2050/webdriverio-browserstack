@@ -1,1 +1,1 @@
-*.yml @browserstack/asi-devs
+.github/* @browserstack/asi-devs
