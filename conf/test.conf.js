@@ -1,49 +1,30 @@
-const { config: baseConfig } = require('./base.conf.js');
+import time
+from time import sleep
+from selenium import webdriver
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.action_chains import ActionChains
+import os
+from selenium.common.exceptions import NoSuchElementException
+#driver = webdriver.Edge()
+driver = webdriver.Firefox()
+#driver = webdriver.Chrome()
+driver.implicitly_wait(3600)
 
-const parallelConfig = {
-  maxInstances: 10,
-  commonCapabilities: {
-    'bstack:options': {
-      buildName: 'browserstack build',
-      source: 'webdriverio:sample-master:v1.2'
-    }
-  },
-  services: [
-    [
-      'browserstack',
-      { buildIdentifier: '#${BUILD_NUMBER}' },
-    ],
-  ],
-  capabilities: [
-    {
-      browserName: 'chrome',
-      browserVersion: 'latest',
-      'bstack:options': {
-        os: 'Windows',
-        osVersion: '10',
-      },
-    },
-    {
-      browserName: 'safari',
-      browserVersion: 'latest',
-      'bstack:options': {
-        os: 'OS X',
-        osVersion: 'Big Sur',
-      },
-    },
-    {
-      browserName: 'chrome',
-      'bstack:options': {
-        deviceName: 'Samsung Galaxy S20',
-      },
-    },
-  ],
-};
+driver.get("https://qtatar.com/join?s=1")
+driver.find_element(By.NAME, 'name').send_keys('😂')
+driver.find_element(By.NAME, 'password').send_keys('a123123')
+driver.find_element(By.NAME, 'submit').click()
 
-exports.config = { ...baseConfig, ...parallelConfig };
-
-// Code to support common capabilities
-exports.config.capabilities.forEach(function (caps) {
-  for (var i in exports.config.commonCapabilities)
-    caps[i] = { ...caps[i], ...exports.config.commonCapabilities[i]};
-});
+driver.get("https://qtatar.com/build?id=32")
+#driver.find_element(By.XPATH, f'/html/body/div[1]/div[4]/div[2]/map[2]/area[12]').click()
+while True:
+        for i in range(1,108+1):
+                driver.find_element(By.XPATH, f'//*[@id="vlist"]/tbody/tr[{i}]/td[2]/a').click()
+                sleep(1.5)
+                driver.find_element(By.XPATH, '/html/body/div[1]/div[4]/div[2]/div/table/tbody/tr[3]/td[2]/a').click()    
+        sleep(2) # = sleep * the range - 375 = da valu
